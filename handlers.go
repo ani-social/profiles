@@ -88,17 +88,31 @@ func updateUser(w http.ResponseWriter, r *http.Request) {
 				return
 			}
 
-			// Check if the updated user contains any empty fields
-			if updatedUser.Username == "" || updatedUser.Avatar == "" ||
-				updatedUser.Profile.Name == "" || updatedUser.Profile.Image == "" ||
-				updatedUser.Profile.Bio == "" || updatedUser.Profile.Philosophy == "" {
-				http.Error(w, "Profile fields cannot be empty", http.StatusBadRequest)
-				return
+			// Merge the updated fields with the existing user data
+			if updatedUser.Username != "" {
+				user.Username = updatedUser.Username
+			}
+			if updatedUser.Avatar != "" {
+				user.Avatar = updatedUser.Avatar
+			}
+			profile := &user.Profile
+			updatedProfile := &updatedUser.Profile
+			if updatedProfile.Name != "" {
+				profile.Name = updatedProfile.Name
+			}
+			if updatedProfile.Image != "" {
+				profile.Image = updatedProfile.Image
+			}
+			if updatedProfile.Bio != "" {
+				profile.Bio = updatedProfile.Bio
+			}
+			if updatedProfile.Philosophy != "" {
+				profile.Philosophy = updatedProfile.Philosophy
 			}
 
-			users[i] = updatedUser
+			users[i] = user
 			saveUsers()
-			json.NewEncoder(w).Encode(updatedUser)
+			json.NewEncoder(w).Encode(user)
 			return
 		}
 	}
