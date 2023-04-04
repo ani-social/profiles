@@ -4,6 +4,7 @@ import (
 	"log"
 
 	"github.com/fatih/color"
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	httpSwagger "github.com/swaggo/http-swagger"
 	"net/http"
@@ -36,5 +37,12 @@ func main() {
 	// add the docs httpSwagger handler
 	r.PathPrefix("/users/docs/").Handler(httpSwagger.WrapHandler)
 
-	log.Fatal(http.ListenAndServe(":8080", r))
+	// Adding CORS middleware
+	corsMiddleware := handlers.CORS(
+		handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}),
+		handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}),
+		handlers.AllowedOrigins([]string{"*"}),
+	)
+
+	log.Fatal(http.ListenAndServe(":8080", corsMiddleware(r)))
 }
