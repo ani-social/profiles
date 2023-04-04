@@ -18,7 +18,7 @@
         },
         "version": "1.0"
     },
-    "host": "https://pipebomb.bytecats.codes/",
+    "host": "https://pipebomb.bytecats.codes",
     "basePath": "/",
     "paths": {
         "/users": {
