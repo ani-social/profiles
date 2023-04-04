@@ -4,6 +4,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/fatih/color"
 	"net/http"
 	"os"
 )
@@ -60,4 +61,22 @@ func init() {
 			fmt.Printf("Loaded %d users from users.json\n", len(users))
 		}
 	})
+}
+
+// saveUsers saves the current users list to the users.json file
+func saveUsers() {
+	dataFile, err := os.Create("users.json")
+	if err != nil {
+		color.Red(err.Error())
+		return
+	}
+	defer dataFile.Close()
+	encoder := json.NewEncoder(dataFile)
+	encoder.SetIndent("", " ")
+	err = encoder.Encode(users)
+	if err != nil {
+		color.Red(err.Error())
+		return
+	}
+	color.Green("Users saved successfully")
 }
