@@ -19,8 +19,8 @@ import (
 // @contact.email support@swagger.io
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
-// @host https://pipebomb.bytecats.codes/
-// @BaseURL https://pipebomb.bytecats.codes/
+// @host https://pipebomb.bytecats.codes
+// @BaseURL https://pipebomb.bytecats.codes
 // @BasePath /
 // @schemes http
 func main() {
