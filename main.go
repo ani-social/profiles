@@ -29,11 +29,11 @@ func main() {
 
 	r := mux.NewRouter()
 	r.Use(loggingMiddleware)
-	r.HandleFunc("/api/users", getUsers).Methods("GET")
-	r.HandleFunc("/api/users", createUser).Methods("POST")
-	r.HandleFunc("/api/users/{username}", getUser).Methods("GET")
-	r.HandleFunc("/api/users/{username}", updateUser).Methods("PUT")
-	r.HandleFunc("/api/users/{username}", deleteUser).Methods("DELETE")
+	r.HandleFunc("/profiles/api/users", getUsers).Methods("GET")
+	r.HandleFunc("/profiles/api/users", createUser).Methods("POST")
+	r.HandleFunc("/profiles/api/users/{username}", getUser).Methods("GET")
+	r.HandleFunc("/profiles/api/users/{username}", updateUser).Methods("PUT")
+	r.HandleFunc("/profiles/api/users/{username}", deleteUser).Methods("DELETE")
 	// add the docs httpSwagger handler
 	r.PathPrefix("/profiles/api/docs/").Handler(httpSwagger.WrapHandler)
 
