@@ -20,10 +20,10 @@ import (
 // @contact.email support@swagger.io
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
-// @host https://pipebomb.bytecats.codes
-// @BaseURL https://pipebomb.bytecats.codes
+// @host pipebomb.bytecats.codes
+// @BaseURL pipebomb.bytecats.codes
 // @BasePath /
-// @schemes http
+// @schemes https
 func main() {
 	color.Blue("Starting server on port 8080...")
 

@@ -44,7 +44,7 @@ definitions:
       username:
         type: string
     type: object
-host: https://pipebomb.bytecats.codes
+host: pipebomb.bytecats.codes
 info:
   contact:
     email: support@swagger.io
@@ -159,5 +159,5 @@ paths:
           description: User not found
       summary: Update a user
 schemes:
-- http
+- https
 swagger: "2.0"
