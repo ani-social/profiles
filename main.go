@@ -35,7 +35,7 @@ func main() {
 	r.HandleFunc("/profiles/api/users/{username}", updateUser).Methods("PUT")
 	r.HandleFunc("/profiles/api/users/{username}", deleteUser).Methods("DELETE")
 	// add the docs httpSwagger handler
-	r.PathPrefix("/profiles/api/docs/").Handler(httpSwagger.WrapHandler)
+	r.PathPrefix("/profiles/docs/").Handler(httpSwagger.WrapHandler)
 
 	// Adding CORS middleware
 	corsMiddleware := handlers.CORS(
