@@ -1,4 +1,7 @@
 # USAGE
+
+[![Go](https://github.com/ani-social/profiles/actions/workflows/go.yml/badge.svg)](https://github.com/ani-social/profiles/actions/workflows/go.yml)
+
 ## GET all users
 <code>curl http://localhost:8080/users -H "Content-Type: application/json" -H "User-Agent: Morty's client"</code>
 
