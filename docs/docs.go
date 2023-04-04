@@ -251,7 +251,7 @@ const docTemplate = `{
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
 	Host:             "pipebomb.bytecats.codes",
-	BasePath:         "/",
+	BasePath:         "/profiles/api/",
 	Schemes:          []string{"https"},
 	Title:            "User Profile API",
 	Description:      "This is a simple API for managing user profiles.",

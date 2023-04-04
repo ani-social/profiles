@@ -1,4 +1,4 @@
-basePath: /
+basePath: /profiles/api/
 definitions:
   main.Achievement:
     properties:

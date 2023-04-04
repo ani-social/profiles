@@ -19,7 +19,7 @@
         "version": "1.0"
     },
     "host": "pipebomb.bytecats.codes",
-    "basePath": "/",
+    "basePath": "/profiles/api/",
     "paths": {
         "/users": {
             "get": {
