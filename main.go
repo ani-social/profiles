@@ -29,6 +29,7 @@ func main() {
 
 	r := mux.NewRouter()
 	r.Use(loggingMiddleware)
+	r.HandleFunc("profiles/", redir).Methods("GET")
 	r.HandleFunc("/profiles/api/users", getUsers).Methods("GET")
 	r.HandleFunc("/profiles/api/users", createUser).Methods("POST")
 	r.HandleFunc("/profiles/api/users/{username}", getUser).Methods("GET")
@@ -45,4 +46,8 @@ func main() {
 	)
 
 	log.Fatal(http.ListenAndServe(":8080", corsMiddleware(r)))
+}
+
+func redir(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "/profiles/docs/index.html", http.StatusSeeOther)
 }
