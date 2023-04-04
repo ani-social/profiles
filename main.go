@@ -1,3 +1,4 @@
+// main.go
 package main
 
 import (
@@ -26,7 +27,8 @@ import (
 // @schemes		https
 func main() {
 	color.Blue("Starting server on port 8080...")
-
+	// Clean up empty profiles before starting the server
+	cleanUpEmptyProfiles()
 	r := mux.NewRouter()
 	r.Use(loggingMiddleware)
 	r.HandleFunc("/profiles", redir).Methods("GET")

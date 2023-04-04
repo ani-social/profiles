@@ -87,6 +87,15 @@ func updateUser(w http.ResponseWriter, r *http.Request) {
 				http.Error(w, err.Error(), http.StatusBadRequest)
 				return
 			}
+
+			// Check if the updated user contains any empty fields
+			if updatedUser.Username == "" || updatedUser.Avatar == "" ||
+				updatedUser.Profile.Name == "" || updatedUser.Profile.Image == "" ||
+				updatedUser.Profile.Bio == "" || updatedUser.Profile.Philosophy == "" {
+				http.Error(w, "Profile fields cannot be empty", http.StatusBadRequest)
+				return
+			}
+
 			users[i] = updatedUser
 			saveUsers()
 			json.NewEncoder(w).Encode(updatedUser)
@@ -94,7 +103,6 @@ func updateUser(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	http.NotFound(w, r)
-
 }
 
 // @Summary		Delete a user
@@ -124,4 +132,16 @@ func deleteUser(w http.ResponseWriter, r *http.Request) {
 	}
 
 	http.NotFound(w, r)
+}
+
+func cleanUpEmptyProfiles() {
+	newUsers := []User{}
+	for _, user := range users {
+		if user.Username != "" && user.Avatar != "" &&
+			user.Profile.Name != "" && user.Profile.Image != "" &&
+			user.Profile.Bio != "" && user.Profile.Philosophy != "" {
+			newUsers = append(newUsers, user)
+		}
+	}
+	users = newUsers
 }
