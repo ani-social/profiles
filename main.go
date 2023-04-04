@@ -5,6 +5,7 @@ import (
 
 	"github.com/fatih/color"
 	"github.com/gorilla/mux"
+	httpSwagger "github.com/swaggo/http-swagger"
 	"net/http"
 	_ "profiles/docs" // Replace this with the path to your generated docs
 )
@@ -18,8 +19,8 @@ import (
 // @contact.email support@swagger.io
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
-// @host localhost:8080
-// @BasePath /
+// @host pipebomb.bytecats.codes/users
+// @BasePath /users
 // @schemes http
 func main() {
 	color.Blue("Starting server on port 8080...")
@@ -31,6 +32,8 @@ func main() {
 	r.HandleFunc("/users/{username}", getUser).Methods("GET")
 	r.HandleFunc("/users/{username}", updateUser).Methods("PUT")
 	r.HandleFunc("/users/{username}", deleteUser).Methods("DELETE")
+	// add the docs httpSwagger handler
+	r.PathPrefix("/users/docs/").Handler(httpSwagger.WrapHandler)
 
 	log.Fatal(http.ListenAndServe(":8080", r))
 }
