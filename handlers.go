@@ -2,18 +2,20 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
+	"github.com/fatih/color"
 	"github.com/gorilla/mux"
 	"net/http"
 	"os"
 )
 
 func getUsers(w http.ResponseWriter, r *http.Request) {
+	color.Green("GET request received for all users")
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(users)
 }
 
 func createUser(w http.ResponseWriter, r *http.Request) {
+	color.Cyan("POST request received to create a new user")
 	w.Header().Set("Content-Type", "application/json")
 	var user User
 	err := json.NewDecoder(r.Body).Decode(&user)
@@ -27,6 +29,7 @@ func createUser(w http.ResponseWriter, r *http.Request) {
 }
 
 func getUser(w http.ResponseWriter, r *http.Request) {
+	color.Yellow("GET request received for a specific user")
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
 	username := params["username"]
@@ -40,6 +43,7 @@ func getUser(w http.ResponseWriter, r *http.Request) {
 }
 
 func updateUser(w http.ResponseWriter, r *http.Request) {
+	color.Magenta("PUT request received to update a user")
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
 	username := params["username"]
@@ -62,6 +66,7 @@ func updateUser(w http.ResponseWriter, r *http.Request) {
 }
 
 func deleteUser(w http.ResponseWriter, r *http.Request) {
+	color.Red("DELETE request received to delete a user")
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
 	username := params["username"]
@@ -79,7 +84,7 @@ func deleteUser(w http.ResponseWriter, r *http.Request) {
 func saveUsers() {
 	dataFile, err := os.Create("users.json")
 	if err != nil {
-		fmt.Println(err)
+		color.Red(err.Error())
 		return
 	}
 	defer dataFile.Close()
@@ -87,7 +92,8 @@ func saveUsers() {
 	encoder.SetIndent("", " ")
 	err = encoder.Encode(users)
 	if err != nil {
-		fmt.Println(err)
+		color.Red(err.Error())
 		return
 	}
+	color.Green("Users saved successfully")
 }
