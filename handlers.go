@@ -8,26 +8,26 @@ import (
 	"net/http"
 )
 
-//	@Summary		Get all users
-//	@Description	Retrieve a list of all users
-//	@ID				get-users
-//	@Produce		json
-//	@Success		200	{array}	User
-//	@Router			/users [get]
+// @Summary		Get all users
+// @Description	Retrieve a list of all users
+// @ID				get-users
+// @Produce		json
+// @Success		200	{array}	User
+// @Router			/users [get]
 func getUsers(w http.ResponseWriter, r *http.Request) {
 	color.Green("GET request received for all users")
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(users)
 }
 
-//	@Summary		Create a new user
-//	@Description	Create a new user with the given data
-//	@ID				create-user
-//	@Accept			json
-//	@Produce		json
-//	@Param			user	body		User	true	"User to be created"
-//	@Success		200		{object}	User
-//	@Router			/users [post]
+// @Summary		Create a new user
+// @Description	Create a new user with the given data
+// @ID				create-user
+// @Accept			json
+// @Produce		json
+// @Param			user	body		User	true	"User to be created"
+// @Success		200		{object}	User
+// @Router			/users [post]
 func createUser(w http.ResponseWriter, r *http.Request) {
 	color.Cyan("POST request received to create a new user")
 	w.Header().Set("Content-Type", "application/json")
@@ -42,14 +42,14 @@ func createUser(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(user)
 }
 
-//	@Summary		Get a specific user
-//	@Description	Retrieve a user by their username
-//	@ID				get-user
-//	@Produce		json
-//	@Param			username	path		string	true	"Username of the user to be fetched"
-//	@Success		200			{object}	User
-//	@Failure		404			"User not found"
-//	@Router			/users/{username} [get]
+// @Summary		Get a specific user
+// @Description	Retrieve a user by their username
+// @ID				get-user
+// @Produce		json
+// @Param			username	path		string	true	"Username of the user to be fetched"
+// @Success		200			{object}	User
+// @Failure		404			"User not found"
+// @Router			/users/{username} [get]
 func getUser(w http.ResponseWriter, r *http.Request) {
 	color.Yellow("GET request received for a specific user")
 	w.Header().Set("Content-Type", "application/json")
@@ -64,16 +64,16 @@ func getUser(w http.ResponseWriter, r *http.Request) {
 	http.NotFound(w, r)
 }
 
-//	@Summary		Update a user
-//	@Description	Update a user's data by their username
-//	@ID				update-user
-//	@Accept			json
-//	@Produce		json
-//	@Param			username	path		string	true	"Username of the user to be updated"
-//	@Param			updatedUser	body		User	true	"Updated user data"
-//	@Success		200			{object}	User
-//	@Failure		404			"User not found"
-//	@Router			/users/{username} [put]
+// @Summary		Update a user
+// @Description	Update a user's data by their username
+// @ID				update-user
+// @Accept			json
+// @Produce		json
+// @Param			username	path		string	true	"Username of the user to be updated"
+// @Param			updatedUser	body		User	true	"Updated user data"
+// @Success		200			{object}	User
+// @Failure		404			"User not found"
+// @Router			/users/{username} [put]
 func updateUser(w http.ResponseWriter, r *http.Request) {
 	color.Magenta("PUT request received to update a user")
 	w.Header().Set("Content-Type", "application/json")
@@ -97,26 +97,31 @@ func updateUser(w http.ResponseWriter, r *http.Request) {
 
 }
 
-//	@Summary		Delete a user
-//	@Description	Delete a user by their username
-//	@ID				delete-user
-//	@Produce		json
-//	@Param			username	path		string	true	"Username of the user to be deleted"
-//	@Success		200			{object}	User
-//	@Failure		404			"User not found"
-//	@Router			/users/{username} [delete]
+// @Summary		Delete a user
+// @Description	Delete a user by their username
+// @ID				delete-user
+// @Produce		json
+// @Param			username	path		string	true	"Username of the user to be deleted"
+// @Success		200			{object}	User
+// @Failure		404			"User not found"
+// @Router			/users/{username} [delete]
 func deleteUser(w http.ResponseWriter, r *http.Request) {
 	color.Red("DELETE request received to delete a user")
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
 	username := params["username"]
-	for i, user := range users {
-		if user.Username == username {
-			users = append(users[:i], users[i+1:]...)
-			saveUsers()
-			json.NewEncoder(w).Encode(user)
-			return
+
+	if username != "Space Mommy" || username != "Space%20Mommy" {
+
+		for i, user := range users {
+			if user.Username == username {
+				users = append(users[:i], users[i+1:]...)
+				saveUsers()
+				json.NewEncoder(w).Encode(user)
+				return
+			}
 		}
 	}
+
 	http.NotFound(w, r)
 }
