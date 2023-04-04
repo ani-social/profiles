@@ -29,13 +29,13 @@ func main() {
 
 	r := mux.NewRouter()
 	r.Use(loggingMiddleware)
-	r.HandleFunc("/users", getUsers).Methods("GET")
-	r.HandleFunc("/users", createUser).Methods("POST")
-	r.HandleFunc("/users/{username}", getUser).Methods("GET")
-	r.HandleFunc("/users/{username}", updateUser).Methods("PUT")
-	r.HandleFunc("/users/{username}", deleteUser).Methods("DELETE")
+	r.HandleFunc("/api/users", getUsers).Methods("GET")
+	r.HandleFunc("/api/users", createUser).Methods("POST")
+	r.HandleFunc("/api/users/{username}", getUser).Methods("GET")
+	r.HandleFunc("/api/users/{username}", updateUser).Methods("PUT")
+	r.HandleFunc("/api/users/{username}", deleteUser).Methods("DELETE")
 	// add the docs httpSwagger handler
-	r.PathPrefix("/users/docs/").Handler(httpSwagger.WrapHandler)
+	r.PathPrefix("/api/docs/").Handler(httpSwagger.WrapHandler)
 
 	// Adding CORS middleware
 	corsMiddleware := handlers.CORS(
