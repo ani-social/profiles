@@ -1,38 +1,20 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
-	"net/http"
-	"os"
-
 	"github.com/gorilla/mux"
+	"net/http"
 )
 
-type User struct {
-	Username string  `json:"username"`
-	Avatar   string  `json:"avatar"`
-	Profile  Profile `json:"profile"`
+func main() {
+	r := mux.NewRouter()
+	r.HandleFunc("/users", getUsers).Methods("GET")
+	r.HandleFunc("/users", createUser).Methods("POST")
+	r.HandleFunc("/users/{username}", getUser).Methods("GET")
+	r.HandleFunc("/users/{username}", updateUser).Methods("PUT")
+	r.HandleFunc("/users/{username}", deleteUser).Methods("DELETE")
+	http.ListenAndServe(":8080", r)
 }
 
-type Profile struct {
-	Name         string        `json:"name"`
-	Image        string        `json:"image"`
-	Bio          string        `json:"bio"`
-	Philosophy   string        `json:"philosophy"`
-	Achievements []Achievement `json:"achievements"`
-	SocialLinks  []Social      `json:"socialLinks"`
-}
-
-type Social struct {
-	Name string `json:"name"`
-	Icon string `json:"icon"`
-	URL  string `json:"url"`
-}
-
-type Achievement struct {
-	Title       string `json:"title"`
-	Description string `json:"description"`
 }
 
 var users []User
