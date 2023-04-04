@@ -10,7 +10,16 @@ const docTemplate = `{
     "info": {
         "description": "{{escape .Description}}",
         "title": "{{.Title}}",
-        "contact": {},
+        "termsOfService": "http://anij.bytecats.codes/tos/",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.anij.bytecats.codes/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
@@ -240,12 +249,12 @@ const docTemplate = `{
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
-	Version:          "",
-	Host:             "",
-	BasePath:         "",
-	Schemes:          []string{},
-	Title:            "",
-	Description:      "",
+	Version:          "1.0",
+	Host:             "https://pipebomb.bytecats.codes/",
+	BasePath:         "/",
+	Schemes:          []string{"http"},
+	Title:            "User Profile API",
+	Description:      "This is a simple API for managing user profiles.",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 }

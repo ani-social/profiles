@@ -1,8 +1,25 @@
 {
+    "schemes": [
+        "http"
+    ],
     "swagger": "2.0",
     "info": {
-        "contact": {}
+        "description": "This is a simple API for managing user profiles.",
+        "title": "User Profile API",
+        "termsOfService": "http://anij.bytecats.codes/tos/",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.anij.bytecats.codes/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
     },
+    "host": "https://pipebomb.bytecats.codes/",
+    "basePath": "/",
     "paths": {
         "/users": {
             "get": {

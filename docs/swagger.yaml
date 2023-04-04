@@ -1,3 +1,4 @@
+basePath: /
 definitions:
   main.Achievement:
     properties:
@@ -43,8 +44,19 @@ definitions:
       username:
         type: string
     type: object
+host: https://pipebomb.bytecats.codes/
 info:
-  contact: {}
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.anij.bytecats.codes/support
+  description: This is a simple API for managing user profiles.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://anij.bytecats.codes/tos/
+  title: User Profile API
+  version: "1.0"
 paths:
   /users:
     get:
@@ -146,4 +158,6 @@ paths:
         "404":
           description: User not found
       summary: Update a user
+schemes:
+- http
 swagger: "2.0"
