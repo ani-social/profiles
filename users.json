@@ -1,0 +1,95 @@
+[
+ {
+  "username": "Space Mommy",
+  "avatar": "https://imgs.search.brave.com/Ld00I-b3V3Zdt7rK-b-mXUN9zx0Vmc01O6HoYyedGw4/rs:fit:624:352:1/g:ce/aHR0cDovL2Nkbi5j/aGVhdGNjLmNvbS9s/aXN0cy9sYXJnZS9k/MzIyMTctMS5qcGc",
+  "profile": {
+   "name": "Space Mommy",
+   "image": "https://imgs.search.brave.com/Ld00I-b3V3Zdt7rK-b-mXUN9zx0Vmc01O6HoYyedGw4/rs:fit:624:352:1/g:ce/aHR0cDovL2Nkbi5j/aGVhdGNjLmNvbS9s/aXN0cy9sYXJnZS9k/MzIyMTctMS5qcGc",
+   "bio": "Space Mommy is the mascot for Ani-J, she watches over the galaxy and helps civilizations with her sweet milk.",
+   "philosophy": "Guiding the lost souls in the universe with love and kindness.",
+   "achievements": [],
+   "socialLinks": []
+  }
+ },
+ {
+  "username": "JessePinkman",
+  "avatar": "\u003cAvatar_URL_here\u003e",
+  "profile": {
+   "name": "Jesse Pinkman",
+   "image": "\u003cProfile_Image_URL_here\u003e",
+   "bio": "Jesse Pinkman is a former high school student who became deeply involved in the production and distribution of methamphetamine. He struggled with addiction and the consequences of his actions, but ultimately found a way to move forward.",
+   "philosophy": "Family first",
+   "achievements": [
+    {
+     "title": "Overcame Addiction",
+     "description": "Jesse successfully overcame his addiction to methamphetamine and stayed clean."
+    }
+   ],
+   "socialLinks": []
+  }
+ },
+ {
+  "username": "Rain",
+  "avatar": "https://i.gifer.com/Ij6F.gif",
+  "profile": {
+   "name": "Rain",
+   "image": "https://i.gifer.com/Ij6F.gif",
+   "bio": "Rain is passionate about DevOps and loves everything related to automating software delivery pipelines and infrastructure management.",
+   "philosophy": "If no one comes from the future to stop you, how bad of a decision can it really be?",
+   "achievements": [],
+   "socialLinks": []
+  }
+ },
+ {
+  "username": "4ce",
+  "avatar": "https://picsum.photos/200",
+  "profile": {
+   "name": "4ce",
+   "image": "https://picsum.photos/200",
+   "bio": "4ce is a space traveler who is on a mission to find and play the ultimate strategic ensemble, a game that requires unparalleled strategy and teamwork to win. Along the way, 4ce faces many challenges and learns valuable lessons about leadership and collaboration.",
+   "philosophy": "Life is a game, and the only way to win is to play it well.",
+   "achievements": [],
+   "socialLinks": []
+  }
+ },
+ {
+  "username": "StonerJoe",
+  "avatar": "https://picsum.photos/200",
+  "profile": {
+   "name": "Stoner Joe",
+   "image": "https://picsum.photos/200",
+   "bio": "Stoner Joe is a beer enthusiast who is on a mission to find the best beer in the world. He loves exploring different breweries and sampling unique brews, and he's always in search of the perfect beer. When he's not on his beer quest, he's dual-booting between Windows and Arch Linux and learning about the latest tech trends. He's also fascinated by Japanese culture and dreams of visiting the country someday.",
+   "philosophy": "",
+   "achievements": [],
+   "socialLinks": []
+  }
+ },
+ {
+  "username": "ricksanchez",
+  "avatar": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+  "profile": {
+   "name": "Rick Sanchez",
+   "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+   "bio": "Rick is a mad scientist who drags his grandson, Morty, on crazy sci-fi adventures.",
+   "philosophy": "Nobody exists on purpose. Nobody belongs anywhere. We're all going to die. Come watch TV.",
+   "achievements": [
+    {
+     "title": "Multiverse Savior",
+     "description": "Saved multiple dimensions from imminent destruction."
+    }
+   ],
+   "socialLinks": [
+    {
+     "name": "Twitter",
+     "icon": "fa fa-twitter",
+     "url": "https://twitter.com/ricksanchez"
+    },
+    {
+     "name": "Facebook",
+     "icon": "fa fa-facebook",
+     "url": "https://facebook.com/ricksanchez"
+    }
+   ]
+  }
+ }
+]
